@@ -53,4 +53,4 @@ packages = [
 dependencies = { file = ["requirements.txt"] }
 
 [project.entry-points."comfyui.custom_nodes"]
-comfyui-liveportraitkj = "comfyui-liveportraitkj"
+comfyui_liveportraitkj = "comfyui_liveportraitkj"
