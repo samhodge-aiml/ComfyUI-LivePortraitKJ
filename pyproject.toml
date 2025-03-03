@@ -13,3 +13,44 @@ Repository = "https://github.com/kijai/ComfyUI-LivePortraitKJ"
 PublisherId = "kijai"
 DisplayName = "ComfyUI-LivePortraitKJ"
 Icon = ""
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = [ 
+    "comfyui-liveportraitkj",
+    "comfyui-liveportraitkj.face_alignment",
+    "comfyui-liveportraitkj.face_alignment.detection",
+    "comfyui-liveportraitkj.face_alignment.detection.blazeface",
+    "comfyui-liveportraitkj.face_alignment.detection.dlib",
+    "comfyui-liveportraitkj.face_alignment.detection.folder",
+    "comfyui-liveportraitkj.face_alignment.detection.sfd",
+    "comfyui-liveportraitkj.liveportrait",
+    "comfyui-liveportraitkj.liveportrait.config",
+    "comfyui-liveportraitkj.liveportrait.modules",
+    "comfyui-liveportraitkj.liveportrait.utils",
+    "comfyui-liveportraitkj.media_pipe",
+]
+
+[tool.setuptools.package-dir]
+"comfyui-liveportraitkj" = "."
+"comfyui-liveportraitkj.face_alignment" = "face_alignment"
+"comfyui-liveportraitkj.face_alignment.detection" = "face_alignment/detection"
+"comfyui-liveportraitkj.face_alignment.detection.blazeface" = "face_alignment/detection/blazeface"
+"comfyui-liveportraitkj.face_alignment.detection.dlib" = "face_alignment/detection/dlib"
+"comfyui-liveportraitkj.face_alignment.detection.folder" = "face_alignment/detection/folder"
+"comfyui-liveportraitkj.face_alignment.detection.sfd" = "face_alignment/detection/sfd"
+"comfyui-liveportraitkj.liveportrait" = "liveportrait"
+"comfyui-liveportraitkj.liveportrait.config" = "liveportrait/config"
+"comfyui-liveportraitkj.liveportrait.modules" = "liveportrait/modules"
+"comfyui-liveportraitkj.liveportrait.utils" = "liveportrait/utils"
+"comfyui-liveportraitkj.media_pipe" = "liveportrait/media_pipe"
+
+[project.entry-points."comfyui.custom_nodes"]
+comfyui-liveportraitkj = "comfyui-liveportraitkj"
+
+
+[tool.setuptools.package-data]
+"*" = ["**/*.js", "**/*.tflite", "**/*.task", "**/*.yaml"]

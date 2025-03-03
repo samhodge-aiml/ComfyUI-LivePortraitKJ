@@ -9,7 +9,7 @@ from .landmark_runner import LandmarkRunner, LandmarkRunnerTorch
 
 from .crop import crop_image
 
-import folder_paths
+from comfy.cmd import folder_paths
 import os
 script_directory = os.path.dirname(os.path.abspath(__file__))
 

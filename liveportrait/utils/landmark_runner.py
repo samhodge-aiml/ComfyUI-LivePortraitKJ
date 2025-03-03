@@ -6,7 +6,7 @@ import numpy as np
 
 from .timer import Timer
 from .crop import crop_image, _transform_pts
-import folder_paths
+from comfy.cmd import folder_paths
 import os
 def to_ndarray(obj):
     if isinstance(obj, torch.Tensor):
