@@ -20,36 +20,36 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
 packages = [ 
-    "comfyui-liveportraitkj",
-    "comfyui-liveportraitkj.face_alignment",
-    "comfyui-liveportraitkj.face_alignment.detection",
-    "comfyui-liveportraitkj.face_alignment.detection.blazeface",
-    "comfyui-liveportraitkj.face_alignment.detection.dlib",
-    "comfyui-liveportraitkj.face_alignment.detection.folder",
-    "comfyui-liveportraitkj.face_alignment.detection.sfd",
-    "comfyui-liveportraitkj.liveportrait",
-    "comfyui-liveportraitkj.liveportrait.config",
-    "comfyui-liveportraitkj.liveportrait.modules",
-    "comfyui-liveportraitkj.liveportrait.utils",
-    "comfyui-liveportraitkj.media_pipe",
+    "comfyui_liveportraitkj",
+    "comfyui_liveportraitkj.face_alignment",
+    "comfyui_liveportraitkj.face_alignment.detection",
+    "comfyui_liveportraitkj.face_alignment.detection.blazeface",
+    "comfyui_liveportraitkj.face_alignment.detection.dlib",
+    "comfyui_liveportraitkj.face_alignment.detection.folder",
+    "comfyui_liveportraitkj.face_alignment.detection.sfd",
+    "comfyui_liveportraitkj.liveportrait",
+    "comfyui_liveportraitkj.liveportrait.config",
+    "comfyui_liveportraitkj.liveportrait.modules",
+    "comfyui_liveportraitkj.liveportrait.utils",
+    "comfyui_liveportraitkj.media_pipe",
 ]
 
 [tool.setuptools.package-dir]
-"comfyui-liveportraitkj" = "."
-"comfyui-liveportraitkj.face_alignment" = "face_alignment"
-"comfyui-liveportraitkj.face_alignment.detection" = "face_alignment/detection"
-"comfyui-liveportraitkj.face_alignment.detection.blazeface" = "face_alignment/detection/blazeface"
-"comfyui-liveportraitkj.face_alignment.detection.dlib" = "face_alignment/detection/dlib"
-"comfyui-liveportraitkj.face_alignment.detection.folder" = "face_alignment/detection/folder"
-"comfyui-liveportraitkj.face_alignment.detection.sfd" = "face_alignment/detection/sfd"
-"comfyui-liveportraitkj.liveportrait" = "liveportrait"
-"comfyui-liveportraitkj.liveportrait.config" = "liveportrait/config"
-"comfyui-liveportraitkj.liveportrait.modules" = "liveportrait/modules"
-"comfyui-liveportraitkj.liveportrait.utils" = "liveportrait/utils"
-"comfyui-liveportraitkj.media_pipe" = "liveportrait/media_pipe"
+"comfyui_liveportraitkj" = "."
+"comfyui_liveportraitkj.face_alignment" = "face_alignment"
+"comfyui_liveportraitkj.face_alignment.detection" = "face_alignment/detection"
+"comfyui_liveportraitkj.face_alignment.detection.blazeface" = "face_alignment/detection/blazeface"
+"comfyui_liveportraitkj.face_alignment.detection.dlib" = "face_alignment/detection/dlib"
+"comfyui_liveportraitkj.face_alignment.detection.folder" = "face_alignment/detection/folder"
+"comfyui_liveportraitkj.face_alignment.detection.sfd" = "face_alignment/detection/sfd"
+"comfyui_liveportraitkj.liveportrait" = "liveportrait"
+"comfyui_liveportraitkj.liveportrait.config" = "liveportrait/config"
+"comfyui_liveportraitkj.liveportrait.modules" = "liveportrait/modules"
+"comfyui_liveportraitkj.liveportrait.utils" = "liveportrait/utils"
+"comfyui_liveportraitkj.media_pipe" = "liveportrait/media_pipe"
 
 [project.entry-points."comfyui.custom_nodes"]
-comfyui-liveportraitkj = "comfyui-liveportraitkj"
+comfyui_liveportraitkj = "comfyui_liveportraitkj"
 
 
 [tool.setuptools.package-data]
