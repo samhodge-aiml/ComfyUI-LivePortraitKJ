@@ -46,9 +46,10 @@ packages = [
 "comfyui_liveportraitkj.liveportrait.modules" = "liveportrait/modules"
 "comfyui_liveportraitkj.liveportrait.utils" = "liveportrait/utils"
 
-[project.entry-points."comfyui.custom_nodes"]
-comfyui_liveportraitkj = "comfyui_liveportraitkj"
-
-
 [tool.setuptools.package-data]
 "*" = ["**/*.js", "**/*.tflite", "**/*.task", "**/*.yaml"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[project.entry-points."comfyui.custom_nodes"]
