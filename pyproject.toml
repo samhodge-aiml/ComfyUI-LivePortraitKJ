@@ -47,7 +47,7 @@ packages = [
 "comfyui_liveportraitkj.liveportrait.utils" = "liveportrait/utils"
 
 [tool.setuptools.package-data]
-"*" = ["**/*.js", "**/*.tflite", "**/*.task", "**/*.yaml"]
+"*" = ["**/*.js", "**/*.tflite", "**/*.task", "**/*.yaml", "**/*.png"]
 
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements.txt"] }
