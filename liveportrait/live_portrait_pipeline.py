@@ -161,9 +161,9 @@ class LivePortraitPipeline(object):
                 scale_new = x_s_info["scale"] * (x_d_info["scale"] / x_d_0_info["scale"])
                 t_new = x_s_info["t"] + (x_d_info["t"] - x_d_0_info["t"])
             elif relative_motion_mode == "source_video_smoothed":
-                if not len(driving_rot_list_smooth) - 1 < i:
+                if not len(driving_rot_list_smooth) < i:
                     continue
-                if not len(driving_exp_list_smooth) - 1 < i:
+                if not len(driving_exp_list_smooth) < i:
                     continue 
                 R_new = driving_rot_list_smooth[i]
                 delta_new = driving_exp_list_smooth[i]
@@ -226,7 +226,7 @@ class LivePortraitPipeline(object):
             else:
                 eyes_delta, lip_delta = None, None
                 if inference_cfg.flag_eye_retargeting:
-                    if not len(driving_landmarks) - 1 < i:
+                    if not len(driving_landmarks) < i:
                         continue
                     c_d_eyes_i = calc_eye_close_ratio(driving_landmarks[i][None])
                     combined_eye_ratio_tensor = (
@@ -243,7 +243,7 @@ class LivePortraitPipeline(object):
                         x_s, combined_eye_ratio_tensor
                     )
                 if inference_cfg.flag_lip_retargeting:
-                    if not len(driving_landmarks) - 1 < i:
+                    if not len(driving_landmarks) < i:
                         break
                     c_d_lip_i = calc_lip_close_ratio(driving_landmarks[i][None])
                     combined_lip_ratio_tensor = (
