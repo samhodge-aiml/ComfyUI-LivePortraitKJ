@@ -728,6 +728,10 @@ class LivePortraitRetargeting:
 
         driving_landmarks = []
         for crop in driving_crop_info["crop_info_list"]:
+            if not isinstance(crop, dict):
+                continue
+            if not crop.has_key('lmk_crop'):
+                continue
             driving_landmarks.append(crop['lmk_crop'])
                           
         retargeting_info = {
