@@ -3,7 +3,7 @@
 """
 Pipeline of LivePortrait
 """
-
+import sys
 import comfy.utils
 import comfy.model_management as mm
 import gc
@@ -74,7 +74,11 @@ class LivePortraitPipeline(object):
                 driving_rot_list.append(None)
                 driving_exp_list.append(None)
                 if i == 0:
-                    raise ValueError("No face detected in FIRST source image")
+                    try:
+                        raise ValueError("No face detected in FIRST source image")
+                    except ValueError:
+                        sys.stderr.write("No face detected in FIRST source image!\n")
+                        break
                 continue
             x_d_info = self.live_portrait_wrapper.get_kp_info(driving_images[i].unsqueeze(0).to(device))
             
@@ -90,7 +94,15 @@ class LivePortraitPipeline(object):
                 x_d_info["pitch"], x_d_info["yaw"], x_d_info["roll"]
             )
             driving_rot_list.append(R_d)
-
+        if not len(driving_info):
+            pbar = comfy.utils.ProgressBar(total_frames)
+            for i in tqdm(range(total_frames), desc='Passthrough no event...', total=total_frames, disable=disable_progress_bar):
+                safe_index = min(i, len(crop_info["crop_info_list"]) - 1)
+                # skip and return empty frames if no crop due to no face detected
+                crop_info["crop_info_list"][safe_index]  = None
+                out_list.append({})
+                pbar.update(1)
+            return { "out_list": out_list, "crop_info": crop_info, "mismatch_method": mismatch_method,}
         if relative_motion_mode == "source_video_smoothed":
             x_d_r_lst = []
             first_driving_rot = driving_rot_list[0].cpu().numpy().astype(np.float32).transpose(0, 2, 1)
