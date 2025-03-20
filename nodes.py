@@ -1,7 +1,7 @@
 import os
 import torch
 import yaml
-import folder_paths
+from comfy.cmd import folder_paths
 import comfy.model_management as mm
 import comfy.utils
 import numpy as np

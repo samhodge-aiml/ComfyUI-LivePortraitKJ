@@ -3,7 +3,7 @@ name = "comfyui-liveportraitkj"
 description = "Nodes for [a/LivePortrait](https://github.com/KwaiVGI/LivePortrait)"
 version = "1.1.0"
 license = { text = "MIT License" }
-dependencies = ["pyyaml", "numpy", "opencv-python", "rich"]
+dynamic = ["dependencies"]
 
 [project.urls]
 Repository = "https://github.com/kijai/ComfyUI-LivePortraitKJ"
@@ -13,3 +13,44 @@ Repository = "https://github.com/kijai/ComfyUI-LivePortraitKJ"
 PublisherId = "kijai"
 DisplayName = "ComfyUI-LivePortraitKJ"
 Icon = ""
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = [ 
+    "comfyui_liveportraitkj",
+    "comfyui_liveportraitkj.face_alignment",
+    "comfyui_liveportraitkj.face_alignment.detection",
+    "comfyui_liveportraitkj.face_alignment.detection.blazeface",
+    "comfyui_liveportraitkj.face_alignment.detection.dlib",
+    "comfyui_liveportraitkj.face_alignment.detection.folder",
+    "comfyui_liveportraitkj.face_alignment.detection.sfd",
+    "comfyui_liveportraitkj.liveportrait",
+    "comfyui_liveportraitkj.liveportrait.config",
+    "comfyui_liveportraitkj.liveportrait.modules",
+    "comfyui_liveportraitkj.liveportrait.utils",
+]
+
+[tool.setuptools.package-dir]
+"comfyui_liveportraitkj" = "."
+"comfyui_liveportraitkj.face_alignment" = "face_alignment"
+"comfyui_liveportraitkj.face_alignment.detection" = "face_alignment/detection"
+"comfyui_liveportraitkj.face_alignment.detection.blazeface" = "face_alignment/detection/blazeface"
+"comfyui_liveportraitkj.face_alignment.detection.dlib" = "face_alignment/detection/dlib"
+"comfyui_liveportraitkj.face_alignment.detection.folder" = "face_alignment/detection/folder"
+"comfyui_liveportraitkj.face_alignment.detection.sfd" = "face_alignment/detection/sfd"
+"comfyui_liveportraitkj.liveportrait" = "liveportrait"
+"comfyui_liveportraitkj.liveportrait.config" = "liveportrait/config"
+"comfyui_liveportraitkj.liveportrait.modules" = "liveportrait/modules"
+"comfyui_liveportraitkj.liveportrait.utils" = "liveportrait/utils"
+
+[tool.setuptools.package-data]
+"*" = ["**/*.js", "**/*.tflite", "**/*.task", "**/*.yaml", "**/*.png"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[project.entry-points."comfyui.custom_nodes"]
+comfyui_liveportraitkj = "comfyui_liveportraitkj"
