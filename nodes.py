@@ -373,6 +373,7 @@ class LivePortraitProcess:
         else:
             # Workaround for missing faces
             if not len(out["out_list"]):
+                cropped_image_list = []
                 cropped_image_list.append(torch.zeros(1, 512, 512, 3, dtype=torch.float32, device = "cpu"))
                 cropped_out_tensors = torch.cat(cropped_image_list, dim=0)
             else:
