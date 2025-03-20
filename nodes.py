@@ -371,7 +371,12 @@ class LivePortraitProcess:
 
             cropped_out_tensors = torch.cat(cropped_image_list, dim=0)
         else:
-            cropped_out_tensors = torch.clamp(out["out_list"][0]["out"], 0, 1).permute(0, 2, 3, 1)
+            # Workaround for missing faces
+            if not len(out["out_list"]):
+                cropped_image_list.append(torch.zeros(1, 512, 512, 3, dtype=torch.float32, device = "cpu"))
+                cropped_out_tensors = torch.cat(cropped_image_list, dim=0)
+            else:
+                cropped_out_tensors = torch.clamp(out["out_list"][0]["out"], 0, 1).permute(0, 2, 3, 1)
       
         return (cropped_out_tensors, out,)
     
