@@ -17,6 +17,8 @@ from .utils.filter import smooth
 from .utils.helper import calc_motion_multiplier
 
 import os
+import sys
+
 script_directory = os.path.dirname(os.path.abspath(__file__))
 
 class LivePortraitPipeline(object):
